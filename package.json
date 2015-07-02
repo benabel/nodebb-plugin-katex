@@ -18,8 +18,9 @@
     "url": "https://github.com/benjaminabel/nodebb-plugin-katex/issues"
   },
   "dependencies": {
+    "katex": "^0.4.3",
     "markdown-it": "^4.1.0",
-    "katex": "^0.4.3"
+    "string": "^3.3.0"
   },
   "nbbpm": {
     "compatibility": "^0.7.0"
