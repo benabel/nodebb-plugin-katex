@@ -1,12 +1,11 @@
 (function() {
 	"use strict";
 
-	var	MarkdownIt = require('markdown-it'),
-	  renderer = require('./lib/auto-render/auto-render'),
-		fs = require('fs'),
+	var	fs = require('fs'),
 		path = require('path'),
 		url = require('url'),
 		katex = require('katex'),
+		mathRenderer = require('./lib/auto-render/auto-render'),
 		meta = module.parent.require('./meta'),
 		nconf = module.parent.require('nconf'),
 		plugins = module.parent.exports,
@@ -22,22 +21,21 @@
 			config: {},
 			onLoad: function(params, callback) {
 				function render(req, res, next) {
-					res.render('admin/plugins/markdown', {
+					res.render('admin/plugins/katex', {
 						themes: Markdown.themes
 					});
 				}
 
-				params.router.get('/admin/plugins/markdown', params.middleware.admin.buildHeader, render);
-				params.router.get('/api/admin/plugins/markdown', render);
-				params.router.get('/markdown/config', function(req, res) {
-					res.status(200).json({
-						highlight: Markdown.highlight ? 1 : 0,
-						theme: Markdown.config.highlightTheme || 'railscasts.css'
-					});
-				});
+				params.router.get('/admin/plugins/katex', params.middleware.admin.buildHeader, render);
+				params.router.get('/api/admin/plugins/katex', render);
+				//params.router.get('/markdown/config', function(req, res) {
+				//	res.status(200).json({
+				//		highlight: Markdown.highlight ? 1 : 0,
+				//		theme: Markdown.config.highlightTheme || 'railscasts.css'
+				//	});
+				//});
 
 				Markdown.init();
-				Markdown.loadThemes();
 				callback();
 			},
 
@@ -74,31 +72,12 @@
 						}
 					}
 
-					_self.highlight = _self.config.highlight || true;
-					delete _self.config.highlight;
-
-					parser = new MarkdownIt(_self.config);
-
-					Markdown.updateParserRules(parser);
-				});
-			},
-
-			loadThemes: function() {
-				fs.readdir(path.join(__dirname, 'public/styles'), function(err, files) {
-					var isStylesheet = /\.css$/;
-					Markdown.themes = files.filter(function(file) {
-						return isStylesheet.test(file);
-					}).map(function(file) {
-						return {
-							name: file
-						}
-					});
 				});
 			},
 
 			parsePost: function(data, callback) {
 				if (data && data.postData && data.postData.content) {
-					data.postData.content = renderer.render(data.postData.content, delimiters);
+					data.postData.content = mathRenderer.render(data.postData.content, delimiters);
 				}
 				callback(null, data);
 			},
@@ -113,9 +92,9 @@
 			parseRaw: function(raw, callback) {
 				callback(null, raw ? parser.render(raw) : raw);
 			},
-			
+
 			registerFormatting: function(payload, callback) {
-				var formatting = ['usd', 'italic', 'list', 'link'];
+				var formatting = ['usd'];
 
 				formatting.reverse();
 				formatting.forEach(function(format) {
@@ -125,95 +104,12 @@
 				callback(null, payload);
 			},
 
-			updateParserRules: function(parser) {
-				// Update renderer to add some classes to all images
-				var renderImage = parser.renderer.rules.image || function(tokens, idx, options, env, self) {
-						return self.renderToken.apply(self, arguments);
-					},
-					renderLink = parser.renderer.rules.link_open || function(tokens, idx, options, env, self) {
-						return self.renderToken.apply(self, arguments);
-					};
-
-				parser.renderer.rules.image = function (tokens, idx, options, env, self) {
-					var classIdx = tokens[idx].attrIndex('class'),
-						srcIdx = tokens[idx].attrIndex('src');
-
-					// Validate the url
-					if (!Markdown.isUrlValid(tokens[idx].attrs[srcIdx][1])) { return ''; }
-
-					if (classIdx < 0) {
-						tokens[idx].attrPush(['class', 'img-responsive img-markdown']);
-					} else {
-						tokens[idx].attrs[classIdx][1] = tokens[idx].attrs[classIdx][1] + ' img-responsive img-markdown';
-					}
-
-					return renderImage(tokens, idx, options, env, self);
-				};
-
-				parser.renderer.rules.link_open = function(tokens, idx, options, env, self) {
-					// Add target="_blank" to all links
-					var targetIdx = tokens[idx].attrIndex('target'),
-						relIdx = tokens[idx].attrIndex('rel'),
-						hrefIdx = tokens[idx].attrIndex('href');
-
-					if (Markdown.isExternalLink(tokens[idx].attrs[hrefIdx][1])) {
-						if (Markdown.config.externalBlank) {
-							if (targetIdx < 0) {
-								tokens[idx].attrPush(['target', '_blank']);
-							} else {
-								tokens[idx].attrs[targetIdx][1] = '_blank';
-							}
-						}
-
-						if (Markdown.config.nofollow) {
-							if (relIdx < 0) {
-								tokens[idx].attrPush(['rel', 'nofollow']);
-							} else {
-								tokens[idx].attrs[relIdx][1] = 'nofollow';
-							}
-						}
-					}
-
-					return renderLink(tokens, idx, options, env, self);
-				};
-
-				plugins.fireHook('action:markdown.updateParserRules', parser);
-			},
-
-			isUrlValid: function(src) {
-				try {
-					var urlObj = url.parse(src, false, true);
-					if (urlObj.host === null && !urlObj.pathname.toString().startsWith(nconf.get('relative_path') + nconf.get('upload_url'))) {
-						return false;
-					} else {
-						return true;
-					}
-				} catch (e) {
-					return false;
-				}
-			},
-
-			isExternalLink: function(urlString) {
-				var urlObj = url.parse(urlString),
-					baseUrlObj = url.parse(nconf.get('url'));
-
-				if (
-					urlObj.host === null ||	// Relative paths are always internal links...
-					(urlObj.host === baseUrlObj.host && urlObj.protocol === baseUrlObj.protocol &&	// Otherwise need to check that protocol and host match
-					(nconf.get('relative_path').length > 0 ? urlObj.pathname.indexOf(nconf.get('relative_path')) === 0 : true))	// Subfolder installs need this additional check
-				) {
-					return false;
-				} else {
-					return true;
-				}
-			},
-
 			admin: {
 				menu: function(custom_header, callback) {
 					custom_header.plugins.push({
-						"route": '/plugins/markdown',
-						"icon": 'fa-edit',
-						"name": 'Markdown'
+						"route": '/plugins/katex',
+						"icon": 'fa-usd',
+						"name": 'katex'
 					});
 
 					callback(null, custom_header);

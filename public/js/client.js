@@ -2,62 +2,15 @@
 /* global hljs, RELATIVE_PATH, require */
 
 $(document).ready(function() {
-	var Markdown = {}, config;
 
-	$.get(RELATIVE_PATH + '/markdown/config', function(_config) {
-		config = _config;
-
-		var cssEl = document.createElement('link');
-		cssEl.rel = 'stylesheet';
-		cssEl.href = RELATIVE_PATH + '/plugins/nodebb-plugin-katex/styles/' + config.theme;
-
-		var head = document.head || document.getElementsByTagName("head")[0];
-		if (head) {
-			head.appendChild(cssEl);
-		}
-
-		$(window).trigger('markdown.ready');
-	});
-
-	Markdown.highlight = function(data) {
-		if (data instanceof jQuery.Event) {
-			highlight($(data.data.selector));
-		} else {
-			highlight(data);
-		}
-	};
-
-	function highlight(elements) {
-		if (!config) {
-			return $(window).on('markdown.ready', highlight.bind(null, elements));
-		}
-
-		function highlightBlock() {
-			codeBlocks.each(function(i, block) {
-				$(block.parentNode).addClass('markdown-highlight');
-				hljs.highlightBlock(block);
-			});
-		}
-
-		if (config.highlight) {
-			var codeBlocks = elements;
-
-			if (typeof hljs === 'undefined') {
-				$.getScript(RELATIVE_PATH + '/plugins/nodebb-plugin-katex/js/highlight.js', highlightBlock);
-			} else {
-				highlightBlock();
-			}
-		}
-	}
-
-	$(window).on('action:composer.preview', {
-		selector: '.composer .preview pre code'
-	}, Markdown.highlight);
+	//$(window).on('action:composer.preview', {
+	//	selector: '.composer .preview'
+	//}, Markdown.highlight);
 
 	require(['composer/formatting', 'composer/controls', 'components'], function(formatting, controls, components) {
 
 		$(window).on('action:posts.loaded action:topic.loaded action:posts.edited', function() {
-			Markdown.highlight(components.get('post/content').find('pre code'));
+			//Markdown.highlight(components.get('post/content').find('pre code'));
 		});
 
 		formatting.addButtonDispatch('usd', function(textarea, selectionStart, selectionEnd){

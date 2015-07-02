@@ -1,6 +1,6 @@
 {
     "id": "nodebb-plugin-katex",
-    "name": "Markdown Parser",
+    "name": "Katex Parser",
     "description": "Use Katex parser in NodeBB",
     "url": "https://github.com/benjaminabel/nodebb-plugin-katex",
     "library": "./library.js",
@@ -14,7 +14,6 @@
         "public/js/admin.js"
     ],
     "staticDirs": {
-        "styles": "public/styles",
         "js": "public/js"
     },
     "templates": "./public/templates",
