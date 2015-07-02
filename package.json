@@ -1,0 +1,27 @@
+{
+  "name": "nodebb-plugin-katex",
+  "version": "3.0.1",
+  "description": "A Markdown parser for NodeBB",
+  "main": "library.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/benjaminabel/nodebb-plugin-katex"
+  },
+  "keywords": [
+    "nodebb",
+    "plugin",
+    "markdown"
+  ],
+  "author": "Benjamin Abel <bbig26@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/benjaminabel/nodebb-plugin-katex/issues"
+  },
+  "dependencies": {
+    "markdown-it": "^4.1.0",
+    "katex": "^0.4.3"
+  },
+  "nbbpm": {
+    "compatibility": "^0.7.0"
+  }
+}
