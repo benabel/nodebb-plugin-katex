@@ -5,18 +5,18 @@
     "url": "https://github.com/benjaminabel/nodebb-plugin-katex",
     "library": "./library.js",
     "less": [
-        "public/less/default.less",
-        "./public/fonts.less",
-        "./public/katex.less"
+        "static/less/default.less",
+        "./static/fonts.less",
+        "./static/katex.less"
     ],
     "scripts": [
-        "public/js/client.js",
-        "public/js/admin.js"
+        "static/js/client.js",
+        "static/js/admin.js"
     ],
     "staticDirs": {
-        "js": "public/js"
+        "js": "static/js"
     },
-    "templates": "./public/templates",
+    "templates": "./static/templates",
     "hooks": [
         { "hook": "static:app.load", "method": "onLoad" },
         { "hook": "filter:parse.post", "method": "parsePost", "priority": 5 },
