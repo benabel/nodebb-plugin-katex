@@ -1,7 +1,7 @@
 {
   "name": "nodebb-plugin-katex",
-  "version": "3.0.1",
-  "description": "A Markdown parser for NodeBB",
+  "version": "0.0.1",
+  "description": "Use Katex math parser inside NodeBB",
   "main": "library.js",
   "repository": {
     "type": "git",
@@ -19,7 +19,6 @@
   },
   "dependencies": {
     "katex": "^0.4.3",
-    "markdown-it": "^4.1.0",
     "string": "^3.3.0"
   },
   "nbbpm": {
