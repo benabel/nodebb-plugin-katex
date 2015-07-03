@@ -72,6 +72,9 @@
         callback(null, data);
       },
 
+      parseRaw: function(raw, callback) {
+        callback(null, raw ? mathRenderer.render(raw, delimiters) : raw);
+      },
 
       registerFormatting: function(payload, callback) {
         var formatting = ['usd'];
