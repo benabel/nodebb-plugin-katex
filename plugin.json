@@ -5,9 +5,8 @@
     "url": "https://github.com/benjaminabel/nodebb-plugin-katex",
     "library": "./library.js",
     "less": [
-        "static/less/default.less",
-        "./static/fonts.less",
-        "./static/katex.less"
+        "./static/less/fonts.less",
+        "./static/less/katex.less"
     ],
     "scripts": [
         "static/js/client.js",
