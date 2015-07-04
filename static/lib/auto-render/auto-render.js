@@ -1,5 +1,4 @@
 var katex = require('katex'),
-  S = require('string'),
   splitAtDelimiters = require("./splitAtDelimiters");
 
 var Renderer = {};
@@ -25,9 +24,11 @@ Renderer.render = function(text, delimiters) {
       var math = data[i].data;
       try {
         // render maths with katex and wrap it into a katex tag to make client post-treatment easier
-        output += S(katex.renderToString(math, {
+        output += '<katex>';
+        output += katex.renderToString(math, {
           displayMode: data[i].display
-        })).wrapHTML('katex').s;
+        });
+        output += '</katex>';
       } catch (e) {
         if (!(e instanceof katex.ParseError)) {
           throw e;
