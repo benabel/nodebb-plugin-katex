@@ -2,7 +2,7 @@
 
 This NodeBB plugin is a parser that allows users to write posts containing maths formulas in tex format using [Katex](Katex).
 
-To customise options for the parser, please consult the "Katex" page in the administration panel, under the "Plugins" heading.
+To customize options for the parser, please consult the "Katex" page in the administration panel, under the "Plugins" heading.
 
 ## Installation
 
@@ -24,6 +24,8 @@ Just wrap your `tex` code inside your posts using these delimiters:
 
 - Use katex in the server-side to display `tex` code inside posts, summaries and composer preview.
 - Adds a `$` button to the composer toolbar to facilitate usage.
+
+![nodebb-plugin-katex.png](https://i.imgur.com/nJDqafD.png)
 
 ## Compatibility
 
