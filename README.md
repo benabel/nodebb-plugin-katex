@@ -20,6 +20,11 @@ Just wrap your `tex` code inside your posts using these delimiters:
 - `$This is \tex code$` for inline display(optionnal check the admin control panel).
 - `$$This is \tex code$$` for block display.
 
+##Features
+
+- Use katex in the server-side to display `tex` code inside posts, summaries and composer preview.
+- Adds a `$` button to the composer toolbar to facilitate usage.
+
 ## Compatibility
 
 This plugin is compatible with nodebb v0.7.x and with the [nodebb-plugin-markdown](https://github.com/julianlam/nodebb-plugin-markdown/) plugin.
