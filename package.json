@@ -10,7 +10,9 @@
   "keywords": [
     "nodebb",
     "plugin",
-    "markdown"
+    "katex",
+    "latex",
+    "tex"
   ],
   "author": "Benjamin Abel <bbig26@gmail.com>",
   "license": "MIT",
