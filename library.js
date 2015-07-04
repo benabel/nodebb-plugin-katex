@@ -1,5 +1,5 @@
 (function() {
-  "use strict";
+    "use strict";
 
   var fs = require('fs'),
     path = require('path'),
