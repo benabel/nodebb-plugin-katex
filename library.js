@@ -31,6 +31,7 @@
         }
 
         params.router.get('/admin/plugins/katex', params.middleware.admin.buildHeader, render);
+        params.router.get('/api/admin/plugins/katex', render);
         Katex.init();
         callback();
       },
