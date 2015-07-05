@@ -12,10 +12,6 @@
     // add the usd button to the composer
     require(['composer/formatting', 'composer/controls', 'components'], function(formatting, controls, components) {
 
-      $(window).on('action:posts.loaded action:topic.loaded action:posts.edited', function() {
-        //Markdown.highlight(components.get('post/content').find('pre code'));
-      });
-
       formatting.addButtonDispatch('usd', function(textarea, selectionStart, selectionEnd) {
         if (selectionStart === selectionEnd) {
           controls.insertIntoTextarea(textarea, '$inline maths$');
