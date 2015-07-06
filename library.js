@@ -6,10 +6,11 @@
 		url = require('url'),
 		katex = require('katex'),
 		mathRenderer = require('./static/lib/auto-render/auto-render'),
+		PluginSocket = require.main.require('./src/socket.io/plugins'),
 		meta = module.parent.require('./meta'),
 		nconf = module.parent.require('nconf'),
 		plugins = module.parent.exports,
-		parser,
+		katexArgs,
 		delimiters = [{
 			left: "$$",
 			right: "$$",
@@ -53,6 +54,7 @@
 							_self.config[field] = options[field];
 						}
 					}
+
 					// manage dollar parsing from admincontrol panel
 					if (_self.config.dollarInline === 'on' && delimiters.length < 4) {
 						delimiters.push({
@@ -63,6 +65,14 @@
 					} else {
 						delimiters.slice(0, 2);
 					}
+					// Create a socket to pass config to the client-side
+					PluginSocket.Katex = {};
+					PluginSocket.Katex.getConfig = function (socket, callback) {
+						var data = {
+							dollarInline: _self.config.dollarInline,
+						};
+						callback(data);
+					};
 				});
 			},
 
