@@ -5,7 +5,7 @@
 		path = require('path'),
 		url = require('url'),
 		katex = require('katex'),
-		mathRenderer = require('./static/lib/auto-render/auto-render'),
+		mathRenderer = require('./lib/auto-render/auto-render'),
 		PluginSocket = require.main.require('./src/socket.io/plugins'),
 		meta = module.parent.require('./meta'),
 		nconf = module.parent.require('nconf'),
