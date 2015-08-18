@@ -16,8 +16,8 @@ To customize options for the parser, please consult the "Katex" page in the admi
 Just wrap your `tex` code inside your posts using these delimiters:
 
 **Brackets delimiters**
-- `\(This is \tex code\)` for inline display.
-- `\[This is \tex code\]` for block display.
+- `\\(This is \tex code\\)` for inline display.
+- `\\[This is \tex code\\]` for block display.
 
 **Dollars delimiters**
 - `$This is \tex code$` for inline display(optionnal check the admin control panel).

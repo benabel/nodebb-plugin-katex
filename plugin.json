@@ -18,9 +18,9 @@
     "templates": "./static/templates",
     "hooks": [
         { "hook": "static:app.load", "method": "onLoad" },
-        { "hook": "filter:parse.post", "method": "parsePost", "priority": 5 },
-        { "hook": "filter:parse.raw", "method": "parseRaw", "priority": 5 },
+        { "hook": "filter:parse.post", "method": "parsePost"},
+        { "hook": "filter:parse.raw", "method": "parseRaw"},
         { "hook": "filter:admin.header.build", "method": "admin.menu" },
-        { "hook": "filter:composer.formatting", "method": "registerFormatting","priority": 5 }
+        { "hook": "filter:composer.formatting", "method": "registerFormatting"}
     ]
 }

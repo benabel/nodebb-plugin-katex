@@ -29,11 +29,11 @@
 			} else {
 				formatting.addButtonDispatch('usd', function (textarea, selectionStart, selectionEnd) {
 					if (selectionStart === selectionEnd) {
-						controls.insertIntoTextarea(textarea, '\\(inline maths\\)');
-						controls.updateTextareaSelection(textarea, selectionStart + 2, selectionStart + 14);
+						controls.insertIntoTextarea(textarea, '\\\\(inline maths\\\\)');
+						controls.updateTextareaSelection(textarea, selectionStart + 3, selectionStart + 15);
 					} else {
-						controls.wrapSelectionInTextareaWith(textarea, '\\(', '\\)');
-						controls.updateTextareaSelection(textarea, selectionStart + 2, selectionEnd + 2);
+						controls.wrapSelectionInTextareaWith(textarea, '\\\\(', '\\\\)');
+						controls.updateTextareaSelection(textarea, selectionStart + 4, selectionEnd + 4);
 					}
 				});
 			}
