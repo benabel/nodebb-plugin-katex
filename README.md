@@ -1,3 +1,6 @@
+[![npm version](https://badge.fury.io/js/nodebb-plugin-katex.svg)](http://badge.fury.io/js/nodebb-plugin-katex)
+[![Dependency Status](https://david-dm.org/benjaminabel/nodebb-plugin-katex.svg)](https://david-dm.org/benjaminabel/nodebb-plugin-katex)
+
 # NodeBB Katex Parser
 
 This NodeBB plugin is a parser that allows users to write posts containing maths formulas in tex format using [Katex](Katex).
