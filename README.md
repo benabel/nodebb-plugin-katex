@@ -32,7 +32,7 @@ Just wrap your `tex` code inside your posts using these delimiters:
 
 ## Compatibility
 
-This plugin is compatible with nodebb v0.7.x and with the [nodebb-plugin-markdown](https://github.com/julianlam/nodebb-plugin-markdown/) plugin.
+This plugin is compatible with nodebb v0.7.x and v0.8.x and with the [nodebb-plugin-markdown](https://github.com/julianlam/nodebb-plugin-markdown/) plugin.
 
 When used in conjonction with the [nodebb-plugin-markdown](https://github.com/julianlam/nodebb-plugin-markdown/), you have to load katex plugin after markdown plugin to enable usage of all buttons of the composer.
 

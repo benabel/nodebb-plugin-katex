@@ -23,6 +23,6 @@
     "katex": "^0.5.0"
   },
   "nbbpm": {
-    "compatibility": "^0.7.2"
+    "compatibility": "^0.7.1 || ^0.8.0"
   }
 }
