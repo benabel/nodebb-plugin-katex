@@ -9,7 +9,9 @@
         "./static/less/katex.less"
     ],
     "scripts": [
-        "static/js/client.js",
+        "static/js/client.js"
+    ],
+    "acpScripts": [
         "static/js/admin.js"
     ],
     "staticDirs": {
