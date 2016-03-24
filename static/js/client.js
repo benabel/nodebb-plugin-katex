@@ -1,5 +1,5 @@
 (function() {
-  "use strict";
+  'use strict';
   /* global socket document $*/
 
   // Retrieve config from the plugin socket and then add the composer button
@@ -47,8 +47,8 @@
   $(document)
       .ready(function() {
         // use only mathml in stripped tags summary
-        $("div.post-preview-content annotation").remove();
-        $("katex").contents().filter(function() { return this.nodeType === 3; }).remove();
+        $('div.post-preview-content annotation').remove();
+        $('katex').contents().filter(function() { return this.nodeType === 3; }).remove();
 
         // add the usd button to the composer when config caught from socket
         $.when(deferred).then(addComposerButton);

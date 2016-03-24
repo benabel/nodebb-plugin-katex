@@ -23,12 +23,14 @@
     "katex": "^0.5.1"
   },
   "devDependencies": {
+    "clang-format": "^1.0.37",
     "eslint": "^2.4.0",
     "eslint-config-google": "^0.4.0"
   },
   "scripts": {
     "lint": "eslint **/*.js",
-    "fix": "eslint --fix **/*.js"
+    "fix": "eslint --fix **/*.js",
+    "format": "clang-format -i **/*.js"
   },
   "nbbpm": {
     "compatibility": "^1.0.0"

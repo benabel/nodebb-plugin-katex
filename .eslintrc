@@ -1,0 +1,11 @@
+"extends": "google"
+
+"env": {
+  "node": true
+}
+
+"rules": {
+  "max-len": [2, 100, 4],
+  "brace-style": [2, "1tbs", { "allowSingleLine": true }],
+  "valid-jsdoc": 0
+}
