@@ -3,7 +3,7 @@
     "name": "Katex Parser",
     "description": "Use Katex parser in NodeBB",
     "url": "https://github.com/benjaminabel/nodebb-plugin-katex",
-    "library": "./library.js",
+    "library": "./lib/index.js",
     "less": [
         "./static/less/fonts.less",
         "./static/less/katex.less"
@@ -15,7 +15,8 @@
         "static/js/admin.js"
     ],
     "staticDirs": {
-        "js": "static/js"
+        "js": "static/js",
+        "fonts": "static/fonts"
     },
     "templates": "./static/templates",
     "hooks": [

@@ -1,8 +1,8 @@
 {
   "name": "nodebb-plugin-katex",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Use Katex math parser inside NodeBB",
-  "main": "library.js",
+  "main": "./lib/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/benjaminabel/nodebb-plugin-katex"
@@ -31,6 +31,6 @@
     "fix": "eslint --fix **/*.js"
   },
   "nbbpm": {
-    "compatibility": "^0.7.1 || ^0.8.0 || ^0.9.0"
+    "compatibility": "^1.0.0"
   }
 }

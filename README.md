@@ -20,7 +20,7 @@ Just wrap your `tex` code inside your posts using these delimiters:
 - `\\[This is \tex code\\]` for block display.
 
 **Dollars delimiters**
-- `$This is \tex code$` for inline display(optionnal: disabled by default, must be set in the admin control panel).
+- `$This is \tex code$` for inline display(optional: disabled by default, must be set in the admin control panel).
 - `$$This is \tex code$$` for block display.
 
 ## Features
@@ -34,7 +34,11 @@ Just wrap your `tex` code inside your posts using these delimiters:
 
 This plugin is compatible with nodebb v0.7.x and above and with the [nodebb-plugin-markdown](https://github.com/julianlam/nodebb-plugin-markdown/) plugin.
 
-When used in conjonction with the [nodebb-plugin-markdown](https://github.com/julianlam/nodebb-plugin-markdown/), you have to load katex plugin after markdown plugin to enable usage of all buttons of the composer.
+When used in conjunction with the [nodebb-plugin-markdown](https://github.com/julianlam/nodebb-plugin-markdown/), you have to load katex plugin after markdown plugin to enable usage of all buttons of the composer.
+
+## Debugging
+
+Katex arsing errors are logged using `winston` the default logger in nodebb at level `verbose`, you need to run `nodebb dev` to see these logs.
 
 ## Credits
 
