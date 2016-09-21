@@ -1,5 +1,6 @@
 [![npm version](https://badge.fury.io/js/nodebb-plugin-katex.svg)](http://badge.fury.io/js/nodebb-plugin-katex)
 [![Dependency Status](https://david-dm.org/benjaminabel/nodebb-plugin-katex.svg)](https://david-dm.org/benjaminabel/nodebb-plugin-katex)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 # NodeBB Katex Parser
 
@@ -38,7 +39,7 @@ When used in conjunction with the [nodebb-plugin-markdown](https://github.com/ju
 
 ## Debugging
 
-Katex arsing errors are logged using `winston` the default logger in nodebb at level `verbose`, you need to run `nodebb dev` to see these logs.
+Katex parsing errors are logged using `winston` the default logger in nodebb at level `verbose`, you need to run `nodebb dev` to see these logs.
 
 ## Credits
 

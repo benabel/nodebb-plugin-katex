@@ -25,12 +25,14 @@
   "devDependencies": {
     "clang-format": "^1.0.45",
     "eslint": "^3.5.0",
-    "eslint-config-google": "^0.6.0"
+    "eslint-config-google": "^0.6.0",
+    "semantic-release": "^4.3.5"
   },
   "scripts": {
     "lint": "eslint **/*.js",
     "fix": "eslint --fix **/*.js",
-    "format": "clang-format -i **/*.js"
+    "format": "clang-format -i **/*.js",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "nbbpm": {
     "compatibility": "^1.0.0"

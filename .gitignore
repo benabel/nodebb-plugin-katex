@@ -1,3 +1,4 @@
 node_modules/
 *.sh
 .idea/
+npm-debug.log
