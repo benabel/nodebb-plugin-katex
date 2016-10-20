@@ -23,7 +23,6 @@
     "katex": "^0.6.0"
   },
   "devDependencies": {
-    "clang-format": "^1.0.45",
     "eslint": "^3.5.0",
     "eslint-config-google": "^0.6.0",
     "semantic-release": "^4.3.5"
@@ -31,8 +30,9 @@
   "scripts": {
     "lint": "eslint **/*.js",
     "fix": "eslint --fix **/*.js",
-    "format": "clang-format -i **/*.js",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "format": "clang-format -i --glob=lib/**/*.js && clang-format -i --glob=static/**/*.js",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "test": "npm run lint"
   },
   "nbbpm": {
     "compatibility": "^1.0.0"

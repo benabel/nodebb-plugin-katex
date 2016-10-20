@@ -1,25 +1,21 @@
-(function() {
-  'use strict';
-  /* global socket document $*/
+'use strict';
+/* global document $*/
 
+$(document).ready(function() {
   // Retrieve config from the plugin socket and then add the composer button
   var Katex = {};
-  var deferred = new $.Deferred();
 
-  function callBack(config) {
-    Katex.dollarInline = config.dollarInline;
-    deferred.resolve(config);
-  }
-  // do the async call to the socket.
-  socket.emit('plugins.Katex.getConfig', callBack);
+  $(window).on('action:composer.enhanced', function() {
+    Katex.prepareFormattingTools();
+  });
 
   /**
-   * Add a dollar button to the composer
-   */
-  function addComposerButton() {
+  * Add a dollar button to the composer
+  */
+  Katex.prepareFormattingTools = function() {
     require(
-        ['composer/formatting', 'composer/controls', 'components'],
-        function(formatting, controls, components) {
+        ['composer/formatting', 'composer/controls'],
+        function(formatting, controls) {
           if (Katex.dollarInline === 'on') {
             formatting.addButtonDispatch('usd', function(textarea, selectionStart, selectionEnd) {
               if (selectionStart === selectionEnd) {
@@ -42,15 +38,14 @@
             });
           }
         });
-  }
+  };
 
-  $(document)
-      .ready(function() {
-        // use only mathml in stripped tags summary
-        $('div.post-preview-content annotation').remove();
-        $('katex').contents().filter(function() { return this.nodeType === 3; }).remove();
-
-        // add the usd button to the composer when config caught from socket
-        $.when(deferred).then(addComposerButton);
-      });
-})();
+  // use only mathml in stripped tags summary
+  $('div.post-preview-content annotation').remove();
+  $('katex')
+      .contents()
+      .filter(function() {
+        return this.nodeType === 3;
+      })
+      .remove();
+});
