@@ -24,6 +24,6 @@
         { "hook": "filter:parse.post", "method": "parsePost"},
         { "hook": "filter:parse.raw", "method": "parseRaw"},
         { "hook": "filter:admin.header.build", "method": "admin.menu" },
-        { "hook": "filter:composer.formatting", "method": "registerFormatting"}
+        { "hook": "filter:composer.formatting", "method": "registerFormatting", "priority": 5}
     ]
 }
