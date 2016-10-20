@@ -1,6 +1,6 @@
 {
   "name": "nodebb-plugin-katex",
-  "version": "0.2.0",
+  "version": "1.0.0-semantic-release",
   "description": "Use Katex math parser inside NodeBB",
   "main": "./lib/index.js",
   "repository": {
