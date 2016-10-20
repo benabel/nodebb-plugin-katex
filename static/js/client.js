@@ -2,7 +2,7 @@
 /* global document $*/
 
 $(document).ready(function() {
-  // Retrieve config from the plugin socket and then add the composer button
+  // Add the $ composer button
   var Katex = {};
 
   $(window).on('action:composer.enhanced', function() {
