@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "eslint": "^3.5.0",
-    "eslint-config-google": "^0.7.0",
+    "eslint-config-google": "^0.7.1",
     "semantic-release": "^4.3.5"
   },
   "scripts": {
