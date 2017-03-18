@@ -1,6 +1,5 @@
 [![npm version](https://badge.fury.io/js/nodebb-plugin-katex.svg)](http://badge.fury.io/js/nodebb-plugin-katex)
 [![Dependency Status](https://david-dm.org/benjaminabel/nodebb-plugin-katex.svg)](https://david-dm.org/benjaminabel/nodebb-plugin-katex)
-[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 # NodeBB Katex Parser
 
@@ -35,7 +34,7 @@ Just wrap your `tex` code inside your posts using these delimiters:
 
 This plugin is compatible with nodebb v0.7.x and above and with the [nodebb-plugin-markdown](https://github.com/julianlam/nodebb-plugin-markdown/) plugin.
 
-When used in conjunction with the [nodebb-plugin-markdown](https://github.com/julianlam/nodebb-plugin-markdown/), you have to load katex plugin after markdown plugin to enable usage of all buttons of the composer.
+When used in conjunction with the [nodebb-plugin-markdown](https://github.com/julianlam/nodebb-plugin-markdown/), you have to **load katex plugin after markdown plugin** to enable usage of all buttons of the composer.
 
 ## Debugging
 
