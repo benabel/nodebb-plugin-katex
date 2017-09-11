@@ -1,4 +1,5 @@
 node_modules/
-*.sh
+*_dev.sh
 .idea/
 npm-debug.log
+KaTeX/
